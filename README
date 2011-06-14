@@ -2,11 +2,11 @@ prerequisite :
  . hsqldb server with 'bris' db -- up and running
  . table ENHET must be present
 
-run : 
- . db-migration:check : maven build fails and should give the following output : "[WARNING] There is 1 pending migrations: "
- . db-migration:migrate : apply all pending migrations 
+run : from command-line at the root of this project  
+ . mvn db-migration:check : maven build fails and should give the following output : "[WARNING] There is 1 pending migrations: "
+ . mvn db-migration:migrate : apply all pending migrations 
 
-check : 
+check : in your favorite sqlclient 
  . select * from enhet --> the record is created
  . select * from schema_version --> a new entry is added
 
